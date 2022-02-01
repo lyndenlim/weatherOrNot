@@ -16,8 +16,65 @@
   <form id="geocoder">
   </form>
 
+  <div class="weather-today">
+    <img id="weather-today-img">
+    <!-- Table for the today card -->
+    <table id="today-table">
+      <tr>
+        <th id="today"></th>
+        <th id="today-temperature"></th>
+      </tr>
+      <tr>
+        <td id="city"></td>
+        <td id="feels-like"></td>
+      </tr>
+      <tr>
+        <td id="today-short-description"></td>
+      </tr>
+      <tr>
+        <td id="today-high"></td>
+        <td id="today-low"></td>
+      </tr>
+      <tr>
+        <td id="today-precipitation"></td>
+        <td id="today-humidity"></td>
+      </tr>
+    </table>
+
+    <!-- Cards for weekly forecast -->
+  <div class="weather-container">
+    <div class="card card-0">
+      <ul id="day-0"></ul>
+    </div>
+    <div class="card card-1">
+      <ul id="day-1"></ul>
+    </div>
+    <div class="card card-2">
+      <ul id="day-2"></ul>
+    </div>
+    <div class="card card-3">
+      <ul id="day-3"></ul>
+    </div>
+    <div class="card card-4">
+      <ul id="day-4"></ul>
+    </div>
+    <div class="card card-5">
+      <ul id="day-5"></ul>
+    </div>
+  </div>
+
+    <p id="umbrella-recommendation"></p>
+  </div>
+
   <!-- Important for seeing object returned by Geocoder -->
   <pre id="result"></pre>
+
+  <div id="today-city">
+    <h4 id="today-temp"></h4>
+  </div>
+  <div id="today-weather-info"></div>
+  <div id="daily-info"></div>
+
 
   <footer>Developed by Lynden Lim and Patrick Liang</footer>
 
