@@ -4,15 +4,41 @@
   <title>Weather Or Not</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Font awesome icons -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <!-- w3 classes -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
   <!-- Geocoder -->
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
   <script
     src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+  <!-- Favorites sidebar -->
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left sidebar w3-pale-blue" style="display:none" id="sidebar">
+    <button id="close-nav" class="w3-bar-item w3-button w3-large w3-light-blue w3-hover-blue">Close
+      &times;</button>
+    <ul id="favorite-list"></ul>
+  </div>
+
+  <div>
+    <button id="open-nav" class="w3-button w3-xxlarge w3-hover"><i class="fas fa-star"></i></button>
+  </div>
+
+  <!-- Logo and app name -->
+  <div id="weather-header">
+    <img src="/assets/umbrella.png" />
+    <h2>Weather Or Not</h2>
+  </div>
+
   <form id="geocoder">
   </form>
 

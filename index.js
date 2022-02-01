@@ -373,8 +373,27 @@ function weeklyWeatherInfo(weatherData) {
 
 };
 
+// Functionality to open sidebar
+const sideBarId = document.getElementById("sidebar")
+function sidebarOpen() {
+  document.getElementById("open-nav").addEventListener("click", e => {
+    sideBarId.style.width = "30%";
+    sideBarId.style.display = "block";
+  });
+};
+
+// Functionality to close siderbar
+function sidebarClose() {
+  document.getElementById("close-nav").addEventListener("click", e => {
+    sideBarId.style.display = "none";
+  });
+};
+
+
 
 document.addEventListener("DOMContentLoaded", e => {
   convertInputToCoordinates()
+  sidebarOpen()
+  sidebarClose()
 });
 
