@@ -45,6 +45,9 @@ const weatherTodayClass = document.querySelector(".weather-today")
 weatherTodayClass.hidden = true;
 const weatherContainerClass = document.querySelector(".weather-container")
 weatherContainerClass.hidden = true;
+const favoriteButtonId = document.querySelector("#favorite-button")
+favoriteButtonId.disabled = true
+const favoriteList = document.querySelector("#favorite-list")
 
 function convertInputToCoordinates() {
   // Creates location converter
@@ -70,7 +73,10 @@ function convertInputToCoordinates() {
     weatherTodayClass.classList.remove("weather-today-fade-out");
     weatherContainerClass.classList.remove("weather-container-fade-out");
 
-
+    document.querySelector("#geocoder").classList.add("geocoder-fade-up");
+    document.querySelector("#weather-header").classList.add("weather-header-fade-left");
+    document.querySelector("footer").classList.add("hide-footer");
+    document.querySelector(".toggle-switch").classList.add("toggle-animate");
   });
 
   geocoder.on('clear', () => {
@@ -389,6 +395,43 @@ function sidebarClose() {
   });
 };
 
+// Toggle color of containers on switch click
+function changeDayNightColor() {
+  document.querySelector(".toggle-switch").addEventListener("click", e => {
+    weatherTodayClass.classList.toggle("night-background");
+    document.querySelectorAll(".card").forEach(card => {
+      card.classList.toggle("night-background");
+    });
+  });
+};
+
+function addFavorites(address) {
+  // Create and add necessary classes to elements
+  const favorite = document.createElement("li")
+  favorite.classList.add("w3-bar-item")
+  favorite.classList.add("w3-border-bottom")
+  favorite.classList.add("favorite-item")
+  favorite.textContent = address
+
+  const deleteButton = document.createElement("button")
+  deleteButton.classList.add("delete-button")
+  deleteButton.innerHTML = `<i class="far fa-trash-alt"></i>`
+
+  const copyButton = document.createElement("button")
+  copyButton.classList.add("copy-button")
+  copyButton.innerHTML = `<i class="far fa-copy"></i>`
+  // Saves selected address to clipboard
+  copyButton.addEventListener("click", e => {
+    navigator.clipboard.writeText(e.target.parentNode.parentNode.innerText)
+  })
+
+  favorite.appendChild(deleteButton)
+  favorite.appendChild(copyButton)
+  favoriteList.appendChild(favorite)
+
+  favoriteButtonId.disabled = true
+
+}
 
 
 document.addEventListener("DOMContentLoaded", e => {

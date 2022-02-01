@@ -1,0 +1,715 @@
+:root {
+    /** sunny side **/
+    --blue-background: #C2E9F6;
+    --blue-border: #72cce3;
+    --blue-color: #96dcee;
+    --yellow-background: #fffaa8;
+    --yellow-border: #f5eb71;
+    /** dark side **/
+    --indigo-background: #808fc7;
+    --indigo-border: #5d6baa;
+    --indigo-color: #6b7abb;
+    --gray-border: #e8e8ea;
+    --gray-dots: #e8e8ea;
+    /** general **/
+    --white: #fff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: grid;
+    min-height: 100vh;
+    font-family: "Montserrat", sans-serif!important;
+    color: white;
+    overflow: hidden;
+    height: 100%;
+    text-shadow: 1px 1px 2px black;
+    -webkit-animation: fadeIn 1s ease-in;
+    -moz-animation: fadeIn 1s ease-in;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+  }
+  
+  .weather-today  {
+    -webkit-animation: slideIn 2s backwards;
+    -moz-animation: slideIn 2s backwards;
+    animation: slideIn 2s backwards;
+  }
+  
+  .weather-container  {
+    -webkit-animation: slideIn 2s backwards;
+    -moz-animation: slideIn 2s backwards;
+    animation: slideIn 2s backwards;
+  }
+  
+  .card-0 {
+  -webkit-animation: slideIn 2s backwards;
+  -moz-animation: slideIn 2s backwards;
+  animation: slideIn 2s backwards;
+  animation-delay: .25s;
+  }
+  
+  .card-1 {
+  -webkit-animation: slideIn 2s backwards;
+  -moz-animation: slideIn 2s backwards;
+  animation: slideIn 2s backwards;
+  animation-delay: .5s;
+  }
+  
+  .card-2 {
+  -webkit-animation: slideIn 2s backwards;
+  -moz-animation: slideIn 2s backwards;
+  animation: slideIn 2s backwards;
+  animation-delay: .75s;
+  }
+  
+  .card-3 {
+  -webkit-animation: slideIn 2s backwards;
+  -moz-animation: slideIn 2s backwards;
+  animation: slideIn 2s backwards;
+  animation-delay: 1s;
+  }
+  
+  .card-4 {
+  -webkit-animation: slideIn 2s backwards;
+  -moz-animation: slideIn 2s backwards;
+  animation: slideIn 2s backwards;
+  animation-delay: 1.25s;
+  }
+  
+  .card-5 {
+  -webkit-animation: slideIn 2s backwards;
+  -moz-animation: slideIn 2s backwards;
+  animation: slideIn 2s backwards;
+  animation-delay: 1.5s;
+  }
+  
+  .weather-today-fade-out {
+    animation: fadeOut ease 2s;
+  -webkit-animation: fadeOut ease 2s;
+  -moz-animation: fadeOut ease 2s;
+  animation-fill-mode: forwards; 
+  }
+  
+  .weather-container-fade-out {
+    animation: fadeOut ease 2s;
+  -webkit-animation: fadeOut ease 2s;
+  -moz-animation: fadeOut ease 2s;
+  animation-fill-mode: forwards; 
+  }
+  
+  @-webkit-keyframes slideIn {
+    0% {
+      transform: translateX(200px);
+      opacity: 0%;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 100%;
+    }
+  }
+  @-moz-keyframes slideIn {
+    0% {
+      transform: translateX(200px);
+      opacity: 0%;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 100%;
+    }
+  }
+  @keyframes slideIn {
+    0% {
+      transform: translateX(200px);
+      opacity: 0%;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 100%;
+    }
+  }
+  
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--blue-background);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 250ms ease-in;
+  }
+  
+  .toggle-switch {
+  margin: 0 auto;
+  position: relative;
+  bottom: 20px;
+  }
+  
+  .toggle-animate {
+  animation: toggle ease 2s;
+  -webkit-animation: toggle ease 2s;
+  -moz-animation: toggle ease 2s;
+  animation-fill-mode: forwards; 
+  }
+  
+  @keyframes toggle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  }
+  
+  @-webkit-keyframes toggle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  }
+  
+  @-moz-keyframes toggle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  }
+  
+  .toggle--checkbox {
+    display: none;
+  }
+  .toggle--checkbox:checked {
+    /** This will all flip from sun to moon **/
+    /** Change the label color **/
+  }
+  .toggle--checkbox:checked ~ .background {
+    background: var(--indigo-background);
+  }
+  
+  .toggle--checkbox:checked + .toggle--label {
+    background: var(--indigo-color);
+    border-color: var(--indigo-border);
+    /** Change the cloud to stars **/
+    /** Change the sun into the moon **/
+    /** Show the dimples on the moon **/
+  }
+  
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background {
+    left: 60px;
+    width: 5px;
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background:before {
+    width: 5px;
+    height: 5px;
+    top: -25px;
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background:after {
+    width: 5px;
+    height: 5px;
+    left: -30px;
+    top: 20px;
+  }
+  .toggle--checkbox:checked + .toggle--label:before {
+    background: var(--white);
+    border-color: var(--gray-border);
+    animation-name: switch;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+  }
+  .toggle--checkbox:checked + .toggle--label:after {
+    transition-delay: 350ms;
+    opacity: 1;
+  }
+  .toggle--label {
+    /** Placeholder element, starting at blue **/
+    width: 200px;
+    height: 100px;
+    background: var(--blue-color);
+    border-radius: 100px;
+    border: 5px solid var(--blue-border);
+    display: flex;
+    position: relative;
+    transition: all 350ms ease-in;
+    /** The sun cloud and moon stars **/
+    /** Sun/Moon element **/
+    /** Gray dots on the moon **/
+  }
+  .toggle--label-background {
+    width: 10px;
+    height: 5px;
+    border-radius: 5px;
+    position: relative;
+    background: var(--white);
+    left: 135px;
+    top: 45px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label-background:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background: var(--white);
+    left: -20px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label-background:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background: var(--white);
+    left: -10px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label:before {
+    animation-name: reverse;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    transition: all 350ms ease-in;
+    content: "";
+    width: 82px;
+    height: 82px;
+    border: 5px solid var(--yellow-border);
+    top: 4px;
+    left: 4px;
+    position: absolute;
+    border-radius: 82px;
+    background: var(--yellow-background);
+  }
+  .toggle--label:after {
+    transition-delay: 0ms;
+    transition: all 250ms ease-in;
+    position: absolute;
+    content: "";
+    box-shadow: var(--gray-dots) -13px 0 0 2px, var(--gray-dots) -24px 14px 0 -2px;
+    left: 143px;
+    top: 23px;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  
+  @keyframes switch {
+    0% {
+      left: 4px;
+    }
+    60% {
+      left: 4px;
+      width: 112px;
+    }
+    100% {
+      left: 104px;
+      width: 82px;
+    }
+  }
+  @keyframes reverse {
+    0% {
+      left: 104px;
+      width: 82px;
+    }
+    60% {
+      left: 72px;
+      width: 112px;
+    }
+    100% {
+      left: 4px;
+    }
+  }
+  
+  #geocoder {
+  display: flex;
+  position: relative;
+  top: 120px;
+  width: 12%;
+  margin: 10px 600px;
+  text-shadow: 0px 0px white;
+  }
+  
+  .geocoder-fade-up {
+  -webkit-animation: fadeUp 1s ease;
+  -moz-animation: fadeUp 1s ease;
+  animation: fadeUp 1s ease;
+  animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadeUp {
+  0% {
+  top: 220px;
+  }
+  100% {
+  top: -80px;
+  }
+  }
+  
+  @-webkit-keyframes fadeUp {
+  0% {
+  top: 220px;
+  }
+  100% {
+  top: -80px;
+  }
+  }
+  
+  @-moz-keyframes fadeUp {
+  0% {
+  top: 220px;
+  }
+  100% {
+  top: -80px;
+  }
+  }
+  
+  .mapboxgl-ctrl-geocoder {
+    min-width: 100%;
+    height: 35px;
+  
+  }
+  
+  #favorite-button {
+    display: flex;
+    padding-right: 5px;
+    border: none;
+    background-color: transparent;
+    color: #faca09;
+    font-size: 30px;
+    transition: transform .2s;
+  }
+  
+  #favorite-button:active {
+    transform: scale(1.25);
+    color: #FFE162;
+  }
+  
+  
+  .star-icon {
+    border-radius: 50%;
+  }
+  
+  #today-city, #today-temp, #today-weather-info {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  #daily-info {
+    text-align: center;
+  }
+  
+  #weather-header {
+    height: 5rem;
+    width: 90%;
+    padding-left: 9rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+  }
+  
+  h2 {
+    font-family: 'Bebas Neue', cursive !important;
+    font-size: 40px!important;
+  }
+  
+  .weather-header-fade-left {
+  -webkit-animation: fadeLeft 1s ease;
+  -moz-animation: fadeLeft 1s ease;
+  animation: fadeLeft 1s ease;
+  animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadeLeft {
+  0% {
+    width: 90%;
+    opacity: 1;
+  }
+  100% {
+    width: 25%;
+    opacity: 1;
+  }
+  }
+  
+  @-webkit-keyframes fadeLeft {
+  0% {
+    width: 90%;
+    opacity: 1;
+  }
+  100% {
+    width: 25%;
+    opacity: 1;
+  }
+  }
+  
+  @-moz-keyframes fadeLeft {
+  0% {
+    width: 90%;
+    opacity: 1;
+  }
+  100% {
+    width: 25%;
+    opacity: 1;
+  }
+  }
+  
+  #weather-header img {
+      height: 10rem;
+      width: auto;
+  }
+  
+  .weather-today {
+    background-color: #A2D2FF;
+      display: block;
+      position: relative;
+      /* justify-content: center; */
+      margin: auto;
+      top: -50px;
+      width: 600px;
+      height: 200px;
+      border-style: solid;
+      border-color: #FEECE9;
+      border-radius: 20px;
+      box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+      transition: transform .2s;
+  }
+  
+  .weather-today:hover {
+    transform: scale(1.05);
+  }
+  
+  .weather-today img {
+      position: relative;
+      left: 10px;
+      margin: 30px;
+      height: 8rem;
+      width: auto;
+      float: left;
+  }
+  
+  .weather-today h1 {
+    padding-top: 20px;
+    height: 3rem;
+  }
+  
+  .weather-today p {
+    word-wrap: break-word;
+    padding: 0 30px;
+  }
+  
+  .weather-container {
+    width: stretch;
+    height: auto;
+    position: relative;
+    top: -10px;
+    text-align: center;
+  }
+  
+  .card {
+    background-color: #A2D2FF;
+    text-align: center;
+    width: 175px;
+    height: 200px;
+    display: inline-grid;
+    margin: 10px 25px;
+    border-style: solid;
+    border-color: #FEECE9;
+    border-radius: 20px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+    transition: transform .2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.1);
+  }
+  
+  .night-background {
+    background-color: #C9CBFF;
+  }
+  
+  #open-nav {
+    color: #faca09;
+    background-color: transparent;
+    font-size: 50px !important;
+  }
+  
+  #open-nav:hover {
+    background-color: transparent !important;
+    color: white !important;
+  }
+  
+  #sidebar {
+    background-color: #f0f5ba;
+    color: black;
+  }
+  
+  #city {
+  font-weight: bold
+  }
+  
+  #feels-like{
+  float: right;
+  }
+  
+  #feels-like {
+  display: inline-block;
+  }
+  
+  ul {
+  list-style: none;
+  }
+  
+  .can-be-removed-img {
+  height: 50px;
+  width: 50px;
+  }
+  
+  #today-table {
+  padding-top: 17px
+  }
+  
+  th {
+  text-align: center;
+  }
+  
+  td {
+  padding: 0 15px;
+  }
+  
+  #umbrella-recommendation {
+  font-weight: bold;
+  padding-top: 7px;
+  padding-left: 220px;
+  }
+  
+  #today, #today-temperature {
+  padding-bottom: 2.5px;
+  font-size: 20px
+  }
+  
+  #weather-today-img {
+  height: 140px;
+  width: 140px;
+  }
+  
+  #favorite-list {
+  text-shadow: 0px 0px white;
+  }
+  
+  .delete-button, .copy-button {
+  float: right;
+  background-color: transparent;
+  border: none;
+  padding-left: 10px;
+  font-size: 17px;
+  }
+  
+  .delete-button:hover {
+  color: red
+  }
+  
+  .copy-button:hover {
+  color: rgb(202, 138, 19);
+  }
+  
+  .copy-button:active {
+  color: yellow;
+  }
+  
+  .no-shadow-text {
+  text-shadow: 0px 0px white;
+  }
+  
+  footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  padding-bottom: 20px;
+  }
+  
+  .hide-footer {
+  animation: fadeOut ease-out 1s;
+  -webkit-animation: fadeOut ease-out 1s;
+  -moz-animation: fadeOut ease-out 1s;
+  animation-fill-mode: forwards; 
+  }
+  
+  @media only screen and (min-width: 1600px) {
+    #geocoder {
+    position: relative;
+    left: 100px;
+  }
+  }
+  
+  @media only screen and (min-width: 1900px) {
+    #geocoder {
+    position: relative;
+    left: 200px;
+  }
+  }
