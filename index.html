@@ -4,9 +4,17 @@
   <title>Weather Or Not</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Text fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <!-- Font awesome icons -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <link rel="stylesheet" type="text/css" href="style.css">
 
   <!-- w3 classes -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -17,8 +25,6 @@
     src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
   <link rel="stylesheet"
     href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
-
-  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
@@ -40,7 +46,9 @@
   </div>
 
   <form id="geocoder">
+    <button type="submit" id="favorite-button"><i class="fas fa-star star-icon"></i></button>
   </form>
+
 
   <div class="weather-today">
     <img id="weather-today-img">
@@ -67,7 +75,10 @@
       </tr>
     </table>
 
-    <!-- Cards for weekly forecast -->
+    <p id="umbrella-recommendation"></p>
+  </div>
+
+  <!-- Cards for weekly forecast -->
   <div class="weather-container">
     <div class="card card-0">
       <ul id="day-0"></ul>
@@ -89,9 +100,6 @@
     </div>
   </div>
 
-    <p id="umbrella-recommendation"></p>
-  </div>
-
   <!-- Important for seeing object returned by Geocoder -->
   <pre id="result"></pre>
 
@@ -101,6 +109,14 @@
   <div id="today-weather-info"></div>
   <div id="daily-info"></div>
 
+  <!-- Toggle button -->
+  <input type="checkbox" id="toggle" class="toggle--checkbox">
+  <label for="toggle" class="toggle--label toggle-switch">
+    <span class="toggle--label-background"></span>
+  </label>
+
+
+  <div class="background"></div>
 
   <footer>Developed by Lynden Lim and Patrick Liang</footer>
 

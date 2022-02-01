@@ -49,6 +49,7 @@ const favoriteButtonId = document.querySelector("#favorite-button")
 favoriteButtonId.disabled = true
 const favoriteList = document.querySelector("#favorite-list")
 
+
 function convertInputToCoordinates() {
   // Creates location converter
   mapboxgl.accessToken = 'pk.eyJ1IjoibHluZGVubGltIiwiYSI6ImNreXBiYzVpNzA4aDAyd295ejZiM3QxbjAifQ.EFGNZzm9zONi23d709ht2A';
@@ -65,6 +66,7 @@ function convertInputToCoordinates() {
   geocoder.on('result', (e) => {
     // Displays JSON under search bar
     // results.innerText = JSON.stringify(e.result, null, 2);
+    favoriteButtonId.disabled = false
     fetchData(e.result.geometry.coordinates, e.result.context)
 
     weatherTodayClass.hidden = false;
@@ -105,6 +107,7 @@ function convertInputToCoordinates() {
     // Handles transition in/out for all info
     weatherTodayClass.classList.add("weather-today-fade-out");
     weatherContainerClass.classList.add("weather-container-fade-out");
+
 
   });
 };
@@ -405,6 +408,7 @@ function changeDayNightColor() {
   });
 };
 
+
 function addFavorites(address) {
   // Create and add necessary classes to elements
   const favorite = document.createElement("li")
@@ -433,10 +437,108 @@ function addFavorites(address) {
 
 }
 
+// Add address to database
+function postAddress(addressName) {
+  let addressObj = {
+    address: addressName
+  }
+  fetch("http://localhost:3000/addresses", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify(addressObj)
+  })
+}
+
+// Delete address from database
+function deleteAddressHandler() {
+  favoriteList.addEventListener("click", e => {
+    document.querySelector(`#address-${e.target.id}`).remove()
+    fetch(`http://localhost:3000/addresses/${e.target.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+  })
+}
+
+// Fetch data from database
+function getAddressData() {
+  fetch("http://localhost:3000/addresses")
+    .then(resp => resp.json())
+    .then(data => displayAddressSidebar(data))
+}
+
+// Appends submitted address to sidebar
+function appendSubmittedAddress() {
+  document.querySelector("#geocoder").addEventListener("submit", e => {
+    e.preventDefault();
+
+    addFavorites(e.target[1].value)
+    postAddress(e.target[1].value)
+
+    const favoriteItemList = document.querySelectorAll(".favorite-item")
+    const iconList = document.querySelectorAll(".fa-trash-alt")
+
+    // Set id to be able to successfully give additional items ids
+    iconList[0].id = 1
+    favoriteItemList[0].id = `address-${1}`
+    // Gives each appended item an id to be able to use the delete request
+    for (i = 1; i <= favoriteItemList.length; i++) {
+      iconList.forEach(item => {
+        if (!item.id) {
+          iconList[i].id = i + 1;
+          favoriteItemList[i].id = `address-${i+1}`;
+        }
+      })
+    }
+
+    // Opens sidebar to show favorited location waiting 3 seconds before closing
+    favoriteList.style.display = "block"
+    sideBarId.style.width = "30%";
+    sideBarId.style.display = "block";
+    setTimeout(() => sideBarId.style.display = "none", 3000)
+  })
+}
+
+// Shows existing entries in sidebar
+function displayAddressSidebar(data) {
+  data.forEach(address => {
+    const favAddress = document.createElement("li");
+    const delAddress = document.createElement("button")
+    const copyAddress = document.createElement("button")
+    favAddress.classList.add("w3-bar-item")
+    favAddress.classList.add("w3-border-bottom")
+    favAddress.classList.add("favorite-item")
+    favAddress.classList.add("no-shadow-text")
+    delAddress.classList.add("delete-button")
+    copyAddress.classList.add("copy-button")
+
+    // Copies address to clipboard
+    copyAddress.addEventListener("click", e => {
+      navigator.clipboard.writeText(e.target.parentNode.parentNode.innerText)
+    })
+    delAddress.innerHTML = `<i id="${address.id}" class="far fa-trash-alt"></i>`
+    copyAddress.innerHTML = `<i class="far fa-copy"></i>`
+    favAddress.id = `address-${address.id}`;
+    favAddress.textContent = address.address;
+
+    favAddress.appendChild(delAddress);
+    favAddress.appendChild(copyAddress);
+    favoriteList.appendChild(favAddress);
+  })
+}
 
 document.addEventListener("DOMContentLoaded", e => {
   convertInputToCoordinates()
+  changeDayNightColor()
   sidebarOpen()
   sidebarClose()
+  getAddressData()
+  deleteAddressHandler()
+  appendSubmittedAddress()
 });
 
