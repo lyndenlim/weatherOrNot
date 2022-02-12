@@ -162,52 +162,52 @@ function currentWeatherInfo(weatherData, locationData) {
       // Change OpenWeather base icons to animated ones
       switch (todayIcon) {
         case "01d":
-          todayIconImg.src = "/assets/sun.svg";
+          todayIconImg.src = "./assets/sun.svg";
           break;
         case "01n":
-          todayIconImg.src = "/assets/sun.svg";
+          todayIconImg.src = "./assets/sun.svg";
           break;
         case "02d":
-          todayIconImg.src = "/assets/cloudy-day.svg";
+          todayIconImg.src = "./assets/cloudy-day.svg";
           break;
         case "02n":
-          todayIconImg.src = "/assets/cloudy-day.svg";
+          todayIconImg.src = "./assets/cloudy-day.svg";
           break;
         case "03d":
-          todayIconImg.src = "/assets/cloudy.svg";
+          todayIconImg.src = "./assets/cloudy.svg";
           break;
         case "03n":
-          todayIconImg.src = "/assets/cloudy.svg";
+          todayIconImg.src = "./assets/cloudy.svg";
           break;
         case "04d":
-          todayIconImg.src = "/assets/cloudy.svg";
+          todayIconImg.src = "./assets/cloudy.svg";
           break;
         case "04n":
-          todayIconImg.src = "/assets/cloudy.svg";
+          todayIconImg.src = "./assets/cloudy.svg";
           break;
         case "09d":
-          todayIconImg.src = "/assets/rain.svg";
+          todayIconImg.src = "./assets/rain.svg";
           break;
         case "09n":
-          todayIconImg.src = "/assets/rain.svg";
+          todayIconImg.src = "./assets/rain.svg";
           break;
         case "10d":
-          todayIconImg.src = "/assets/partly-cloudy-rain.svg";
+          todayIconImg.src = "./assets/partly-cloudy-rain.svg";
           break;
         case "10n":
-          todayIconImg.src = "/assets/partly-cloudy-rain.svg";
+          todayIconImg.src = "./assets/partly-cloudy-rain.svg";
           break;
         case "11d":
-          todayIconImg.src = "assets/cloud-lightning.svg";
+          todayIconImg.src = "./assets/cloud-lightning.svg";
           break;
         case "11n":
-          todayIconImg.src = "assets/cloud-lightning.svg";
+          todayIconImg.src = "./assets/cloud-lightning.svg";
           break;
         case "13d":
-          todayIconImg.src = "/assets/snow.svg";
+          todayIconImg.src = "./assets/snow.svg";
           break;
         case "13n":
-          todayIconImg.src = "/assets/snow.svg";
+          todayIconImg.src = "./assets/snow.svg";
           break;
         case "50d":
           todayIconImg.src = `http://openweathermap.org/img/wn/${todayIcon}@2x.png`;
@@ -300,46 +300,46 @@ function weeklyWeatherInfo(weatherData) {
         dailyIconImg.src = "/assets/sun.svg";
         break;
       case "02d":
-        dailyIconImg.src = "/assets/cloudy-day.svg";
+        dailyIconImg.src = "./assets/cloudy-day.svg";
         break;
       case "02n":
-        dailyIconImg.src = "/assets/cloudy-day.svg";
+        dailyIconImg.src = "./assets/cloudy-day.svg";
         break;
       case "03d":
-        dailyIconImg.src = "/assets/cloudy.svg";
+        dailyIconImg.src = "./assets/cloudy.svg";
         break;
       case "03n":
-        dailyIconImg.src = "/assets/cloudy.svg";
+        dailyIconImg.src = "./assets/cloudy.svg";
         break;
       case "04d":
-        dailyIconImg.src = "/assets/cloudy.svg";
+        dailyIconImg.src = "./assets/cloudy.svg";
         break;
       case "04n":
-        dailyIconImg.src = "/assets/cloudy.svg";
+        dailyIconImg.src = "./assets/cloudy.svg";
         break;
       case "09d":
-        dailyIconImg.src = "/assets/rain.svg";
+        dailyIconImg.src = "./assets/rain.svg";
         break;
       case "09n":
-        dailyIconImg.src = "/assets/rain.svg";
+        dailyIconImg.src = "./assets/rain.svg";
         break;
       case "10d":
-        dailyIconImg.src = "/assets/partly-cloudy-rain.svg";
+        dailyIconImg.src = "./assets/partly-cloudy-rain.svg";
         break;
       case "10n":
-        dailyIconImg.src = "/assets/partly-cloudy-rain.svg";
+        dailyIconImg.src = "./assets/partly-cloudy-rain.svg";
         break;
       case "11d":
-        dailyIconImg.src = "assets/cloud-lightning.svg";
+        dailyIconImg.src = "./assets/cloud-lightning.svg";
         break;
       case "11n":
-        dailyIconImg.src = "assets/cloud-lightning.svg";
+        dailyIconImg.src = "./assets/cloud-lightning.svg";
         break;
       case "13d":
-        dailyIconImg.src = "/assets/snow.svg";
+        dailyIconImg.src = "./assets/snow.svg";
         break;
       case "13n":
-        dailyIconImg.src = "/assets/snow.svg";
+        dailyIconImg.src = "./assets/snow.svg";
         break;
       case "50d":
         dailyIconImg.src = `http://openweathermap.org/img/wn/${dailyIcon}@2x.png`;
